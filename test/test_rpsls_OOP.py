@@ -183,13 +183,13 @@ def test_minus_action():
     GameActions EnumType behaviour
     '''
     assert 1 == len(GameAction.minus(
-        GameAction.Scissors,
-        GameAction.Lizard,
-        GameAction.Paper,
-        GameAction.Rock))
+        GameAction.SCISSORS,
+        GameAction.LIZZARD,
+        GameAction.PAPER,
+        GameAction.ROCK))
 
-    assert 4 == len(GameAction.minus(GameAction.Lizard))
+    assert 4 == len(GameAction.minus(GameAction.LIZZARD))
 
-    assert GameAction.Lizard not in GameAction.minus(GameAction.Lizard)
+    assert GameAction.LIZZARD not in GameAction.minus(GameAction.LIZZARD)
 
-    assert GameAction.Lizard in GameAction.minus(GameAction.Spock, GameAction.Rock)
+    assert GameAction.LIZZARD in GameAction.minus(GameAction.SPOCK, GameAction.ROCK)
