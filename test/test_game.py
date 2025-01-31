@@ -1,5 +1,7 @@
 import pytest
-from src.rps_basic import GameResult, GameAction, assess_game
+from src.rpsls_OOP import Game
+from src.game_action import GameAction
+from src.game_result import GameResult
 
 @pytest.mark.draw
 def test_draw():
