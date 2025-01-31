@@ -1,21 +1,6 @@
 import random
-from enum import IntEnum
-
-
-class GameAction(IntEnum):
-
-    ROCK = 0
-    PAPER = 1
-    SCISSORS = 2
-    LIZZARD = 3
-    SPOCK = 4
-
-
-class GameResult(IntEnum):
-    Victory = 0
-    Defeat = 1
-    Tie = 2
-
+from game_action import GameAction
+from game_result import GameResult
 
 Victories = {
     GameAction.ROCK: (GameAction.PAPER, GameAction.SPOCK),
