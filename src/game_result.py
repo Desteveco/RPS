@@ -1,4 +1,4 @@
-from enum import Enum
+from enum import IntEnum
 
 class GameResult(IntEnum):
     
