@@ -7,3 +7,7 @@ class GameAction(IntEnum):
     SCISSORS = 2
     LIZZARD = 3
     SPOCK = 4
+
+    @classmethod
+    def minus(cls, *actions_excluded):
+        return [action for action in GameAction if action not in actions_excluded]
