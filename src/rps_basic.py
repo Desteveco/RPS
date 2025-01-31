@@ -7,6 +7,8 @@ class GameAction(IntEnum):
     Rock = 0
     Paper = 1
     Scissors = 2
+    Lizzard = 3
+    Spock = 4
 
 
 class GameResult(IntEnum):
@@ -16,9 +18,11 @@ class GameResult(IntEnum):
 
 
 Victories = {
-    GameAction.Rock: GameAction.Paper,
-    GameAction.Paper: GameAction.Scissors,
-    GameAction.Scissors: GameAction.Rock
+    GameAction.Rock: (GameAction.Paper, GameAction.Spock),
+    GameAction.Paper: (GameAction.Scissors, GameAction.Lizzard),
+    GameAction.Scissors: (GameAction.Rock, GameAction.Spock),
+    GameAction.Lizzard: (GameAction.Scissors, GameAction.Rock),
+    GameAction.Spock: (GameAction.Lizzard, GameAction.Paper)
 }
 
 def assess_game(user_action, computer_action):
@@ -27,7 +31,7 @@ def assess_game(user_action, computer_action):
         print(f"User and computer picked {user_action.name}. Draw game!")
         return GameResult.Tie
 
-    if Victories[user_action] == computer_action:
+    if  computer_action in Victories[user_action]:
         print("You Loose!")
         return GameResult.Defeat
 
