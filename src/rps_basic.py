@@ -4,9 +4,9 @@ from enum import IntEnum
 
 class GameAction(IntEnum):
 
-    Rock = 0
-    Paper = 1
-    Scissors = 2
+    ROCK = 0
+    PAPER = 1
+    SCISSORS = 2
 
 
 class GameResult(IntEnum):
@@ -16,9 +16,9 @@ class GameResult(IntEnum):
 
 
 Victories = {
-    GameAction.Rock: GameAction.Paper,
-    GameAction.Paper: GameAction.Scissors,
-    GameAction.Scissors: GameAction.Rock
+    GameAction.ROCK: GameAction.PAPER,
+    GameAction.PAPER: GameAction.SCISSORS,
+    GameAction.SCISSORS: GameAction.ROCK
 }
 
 def assess_game(user_action, computer_action):
