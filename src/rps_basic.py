@@ -4,9 +4,11 @@ from enum import IntEnum
 
 class GameAction(IntEnum):
 
-    Rock = 0
-    Paper = 1
-    Scissors = 2
+    ROCK = 0
+    PAPER = 1
+    SCISSORS = 2
+    LIZZARD = 3
+    SPOCK = 4
 
 
 class GameResult(IntEnum):
@@ -16,9 +18,11 @@ class GameResult(IntEnum):
 
 
 Victories = {
-    GameAction.Rock: GameAction.Paper,
-    GameAction.Paper: GameAction.Scissors,
-    GameAction.Scissors: GameAction.Rock
+    GameAction.ROCK: (GameAction.PAPER, GameAction.SPOCK),
+    GameAction.PAPER: (GameAction.SCISSORS, GameAction.LIZZARD),
+    GameAction.SCISSORS: (GameAction.ROCK, GameAction.SPOCK),
+    GameAction.LIZZARD: (GameAction.SCISSORS, GameAction.ROCK),
+    GameAction.SPOCK: (GameAction.LIZZARD, GameAction.PAPER)
 }
 
 def assess_game(user_action, computer_action):
@@ -27,7 +31,7 @@ def assess_game(user_action, computer_action):
         print(f"User and computer picked {user_action.name}. Draw game!")
         return GameResult.Tie
 
-    if Victories[user_action] == computer_action:
+    if  computer_action in Victories[user_action]:
         print("You Loose!")
         return GameResult.Defeat
 
