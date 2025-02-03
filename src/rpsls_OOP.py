@@ -7,7 +7,7 @@ class Game:
     def __init__(self):
         self.rounds_won_player = 0
         self.rounds_won_computer = 0
-        pass
+
         
 
     def assess_game(self, user_action, computer_action):
